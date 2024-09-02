@@ -18,6 +18,8 @@
 		64C08A7C2C82A2A30017E510 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64C08A7B2C82A2A30017E510 /* Card.swift */; };
 		64D5C0DE2C8491FB005E5B77 /* DeckCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64D5C0DD2C8491FB005E5B77 /* DeckCard.swift */; };
 		64D5C0E02C849409005E5B77 /* ManageDeck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64D5C0DF2C849409005E5B77 /* ManageDeck.swift */; };
+		64D5C0E22C84B116005E5B77 /* ListCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64D5C0E12C84B116005E5B77 /* ListCard.swift */; };
+		64D5C0E42C84B38B005E5B77 /* ListDeck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64D5C0E32C84B38B005E5B77 /* ListDeck.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +54,8 @@
 		64C08A7B2C82A2A30017E510 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		64D5C0DD2C8491FB005E5B77 /* DeckCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeckCard.swift; sourceTree = "<group>"; };
 		64D5C0DF2C849409005E5B77 /* ManageDeck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageDeck.swift; sourceTree = "<group>"; };
+		64D5C0E12C84B116005E5B77 /* ListCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCard.swift; sourceTree = "<group>"; };
+		64D5C0E32C84B38B005E5B77 /* ListDeck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListDeck.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +114,8 @@
 				64C08A7B2C82A2A30017E510 /* Card.swift */,
 				64D5C0DD2C8491FB005E5B77 /* DeckCard.swift */,
 				64D5C0DF2C849409005E5B77 /* ManageDeck.swift */,
+				64D5C0E12C84B116005E5B77 /* ListCard.swift */,
+				64D5C0E32C84B38B005E5B77 /* ListDeck.swift */,
 			);
 			path = FlashCardApp;
 			sourceTree = "<group>";
@@ -271,7 +277,9 @@
 			files = (
 				64C08A522C82A0620017E510 /* ContentView.swift in Sources */,
 				64D5C0E02C849409005E5B77 /* ManageDeck.swift in Sources */,
+				64D5C0E22C84B116005E5B77 /* ListCard.swift in Sources */,
 				64D5C0DE2C8491FB005E5B77 /* DeckCard.swift in Sources */,
+				64D5C0E42C84B38B005E5B77 /* ListDeck.swift in Sources */,
 				64C08A542C82A0620017E510 /* Item.swift in Sources */,
 				64C08A502C82A0620017E510 /* FlashCardAppApp.swift in Sources */,
 				64C08A7C2C82A2A30017E510 /* Card.swift in Sources */,

@@ -17,6 +17,7 @@ struct ManageDeck: View {
             Text("Question")
             TextEditor(text: $ques)
 //                .frame(maxWidth: .infinity)
+                .frame(maxWidth: .infinity,maxHeight:100)
                 .lineLimit(3)
                 .foregroundStyle(.black)
                 .cornerRadius(8)
@@ -24,13 +25,15 @@ struct ManageDeck: View {
             Text("Answer")
             TextEditor(text: $ans)
 //                .frame(maxWidth: .infinity)
+                .frame(maxWidth: .infinity,maxHeight:100)
                 .lineLimit(3)
                 .cornerRadius(8)
                 .overlay(RoundedRectangle(cornerRadius: 10).stroke(.gray))
 
             Text("Explaination (Optional)")
             TextEditor(text: $explain)
-                .frame(maxWidth: .infinity)
+                .lineLimit(3)
+                .frame(maxWidth: .infinity,maxHeight:100)
                 .cornerRadius(8)
                 .overlay(RoundedRectangle(cornerRadius: 10).stroke(.gray))
             Spacer()
@@ -38,34 +41,24 @@ struct ManageDeck: View {
                 Button(action: {
                     
                 }, label: {
-                    Text("Cancel")
+                    Text("Add")
                         .font(.largeTitle)
                         .fontWeight(.bold)
                         .foregroundStyle(.white)
                 })
                 .frame(maxWidth: .infinity)
-                .padding(.vertical,10)
-                .background(.gray)
-                .clipShape(RoundedRectangle(cornerRadius: 10))
-                Button(action: {
-                    
-                }, label: {
-                    Text("Done")
-                        .font(.largeTitle)
-                        .fontWeight(.bold)
-                        .foregroundStyle(.white)
-                })
-                .frame(maxWidth: .infinity)
-                .padding(.vertical,10)
-                .background(.blue)
+                .padding(.vertical,5)
+                .background(.green)
                 .clipShape(RoundedRectangle(cornerRadius: 10))
                 
                 
 //                Button(action
             }
-            .frame(height: 50)
+            .frame(height: 20)
+            .padding(.horizontal,10)
         }
         .padding()
+//        .ignoresSafeArea(.container)
     }
 }
 

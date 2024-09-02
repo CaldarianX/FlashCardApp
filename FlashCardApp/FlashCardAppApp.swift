@@ -12,7 +12,7 @@ import SwiftData
 struct FlashCardAppApp: App {
     var body: some Scene {
         WindowGroup {
-            ManageDeck()
+            ContentView()
         }
     }
 }

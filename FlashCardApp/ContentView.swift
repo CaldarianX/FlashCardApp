@@ -6,11 +6,34 @@
 //
 
 import SwiftUI
-import SwiftData
 
 struct ContentView: View {
-    var body: some View{
-        Text("Hello")
+    @State var x = ["hi","lol","adwd"]
+    @State var onadd = false
+    var body: some View {
+        NavigationSplitView(){
+            List{
+                ForEach(x,id: \.self){i in
+                    Text(i)
+                }
+            }
+            .navigationTitle("Deck")
+            .navigationBarBackButtonHidden()
+            .toolbar{
+                ToolbarItem(placement: .navigationBarTrailing){
+                    Button(action:{
+                    },label: {
+                        Image(systemName: "plus")
+                    })
+                }
+            }
+//            
+            .navigationSplitViewStyle(.balanced)
+
+        }
+        detail: {
+            ListCard(onadd: $onadd)
+        }
     }
 }
 
