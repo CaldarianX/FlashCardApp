@@ -13,8 +13,15 @@ enum Subject{
 }
 
 struct DeckCard{
+    var name : String
     var cards : [Card] = []
     var size : Int = 0
+    var type : Subject
+    
+    init(name: String,type: Subject) {
+        self.name = name
+        self.type = type
+    }
     
     mutating func addCard(Question : String,Answer : String,Explaination:String){
         let newcard = Card(Q: Question, Ans: Answer, Exp: Explaination)
