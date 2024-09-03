@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ListCard: View {
     @Binding var theDeck: DeckCard
-    
+    @State var Ondelete : Bool = false
     let columns = [
         GridItem(.flexible()),
         GridItem(.flexible())
@@ -17,10 +17,19 @@ struct ListCard: View {
     
     var body: some View {
         NavigationStack {
+            HStack{
+                Text("\(theDeck.cards.count) cards")
+                    .font(.headline)
+                    .fontWeight(.regular)
+                    .foregroundStyle(.gray)
+                Spacer()
+            }
+            .padding(.horizontal,22)
+            
             ScrollView {
                 LazyVGrid(columns: columns) {
-                    ForEach(theDeck.cards, id: \.id) { card in
-                        showCard(Question: card.Question, Answer: card.Answer)
+                    ForEach(theDeck.cards.indices, id: \.self) { index in
+                        showCard(deck: $theDeck, index: index, Ondelete: $Ondelete)
                     }
                 }
             }
@@ -32,21 +41,54 @@ struct ListCard: View {
                     }
                 }
             }
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    NavigationLink(destination: PlayFlashCard(Decks: $theDeck)){
+                            Image(systemName: "play.fill")
+                    }
+                }
+            }
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button(action: {
+                        withAnimation{
+                            Ondelete.toggle()
+                        }
+                    }){
+                        Image(systemName: "x.circle")
+                            .bold()
+                            .foregroundStyle(Ondelete ? .red : .gray)
+                    }
+                }
+            }
         }
     }
 }
 
 struct showCard: View {
-    var Question: String
-    var Answer: String
-    
+    @Binding var deck : DeckCard
+    var index : Int
+    @Binding var Ondelete : Bool
     var body: some View {
         VStack {
-            Text("\(Question)")
+            if(Ondelete){
+                VStack(alignment : .leading){
+                    Button(action : {
+                        _ = withAnimation{
+                            deck.cards.remove(at: index)
+                        }
+                    }){
+                        Image(systemName: "x.circle.fill")
+                            .foregroundStyle(.red)
+                            .bold()
+                    }
+                }
+            }
+            Text("\(deck.cards[index].Question)")
                 .lineLimit(1)
                 .font(.title3)
                 .foregroundStyle(.black)
-            Text("\(Answer)")
+            Text("\(deck.cards[index].Answer)")
                 .lineLimit(1)
                 .font(.caption)
                 .foregroundStyle(.black)

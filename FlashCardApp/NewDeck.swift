@@ -9,7 +9,7 @@ import SwiftUI
 
 struct NewDeck: View {
     @Environment(\.dismiss) var dismiss
-    @State var name : String =  " "
+    @State var name : String =  ""
     @State var selectedSubject : Subject = .Bio
     @Binding var Decks : [DeckCard]
     var body: some View {
