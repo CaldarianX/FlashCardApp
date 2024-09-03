@@ -40,9 +40,7 @@ struct ContentView: View {
             .navigationTitle("Decks")
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    Button(action: {
-                        AddNewDecks(of: &Decks)
-                    }) {
+                    NavigationLink(destination: NewDeck(Decks: $Decks)) {
                         Image(systemName: "plus")
                     }
                 }
