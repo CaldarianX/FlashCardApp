@@ -43,9 +43,11 @@ struct showCard: View {
     var body: some View {
         VStack {
             Text("\(Question)")
+                .lineLimit(1)
                 .font(.title3)
                 .foregroundStyle(.black)
             Text("\(Answer)")
+                .lineLimit(1)
                 .font(.caption)
                 .foregroundStyle(.black)
         }
@@ -53,7 +55,7 @@ struct showCard: View {
         .padding()
         .background(Color.white)
         .cornerRadius(10)
-        .shadow(radius: 5)
+        .shadow(radius: 2)
         .padding(.horizontal)
         .padding(.vertical,5)
     }
