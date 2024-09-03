@@ -9,10 +9,11 @@ import Foundation
 
 
 enum Subject{
-    case Bio,Math,Physic,Chem
+    case Bio,Math,Physic,Chem,Japanese
 }
 
-struct DeckCard{
+struct DeckCard : Identifiable{
+    var id = UUID()
     var name : String
     var cards : [Card] = []
     var size : Int = 0
@@ -27,6 +28,7 @@ struct DeckCard{
         let newcard = Card(Q: Question, Ans: Answer, Exp: Explaination)
         cards.append(newcard)
         size += 1
+        print("WTF \(size)")
     }
     
     func getQuestion(index : Int) ->String{

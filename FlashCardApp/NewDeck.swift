@@ -31,6 +31,7 @@ struct NewDeck: View {
                         Text("Mathematics").tag(Subject.Math)
                         Text("Physics").tag(Subject.Physic)
                         Text("Chemistry").tag(Subject.Chem)
+                        Text("Japanese").tag(Subject.Japanese)
                     }
                     .foregroundStyle(.black)
                 }

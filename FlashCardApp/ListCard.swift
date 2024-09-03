@@ -8,26 +8,63 @@
 import SwiftUI
 
 struct ListCard: View {
-    @State private var moreCard: Bool = false
-    @Binding var onadd : Bool
+    @Binding var theDeck: DeckCard
+    
+    let columns = [
+        GridItem(.flexible()),
+        GridItem(.flexible())
+    ]
+    
     var body: some View {
         NavigationStack {
-            VStack {
-                NavigationLink("Add More", value: "ManageDeck")
-                    .padding()
-            }
-            .navigationDestination(for: String.self) { value in
-                if value == "ManageDeck" {
-                    ManageDeck()
+            ScrollView {
+                LazyVGrid(columns: columns) {
+                    ForEach(theDeck.cards, id: \.id) { card in
+                        showCard(Question: card.Question, Answer: card.Answer)
+                    }
                 }
             }
-            .navigationTitle("List of Cards")
+            .navigationTitle("\(theDeck.name)")
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    NavigationLink(destination: ManageDeck(Deck: $theDeck)){
+                            Image(systemName: "plus")
+                    }
+                }
+            }
         }
     }
+}
+
+struct showCard: View {
+    var Question: String
+    var Answer: String
+    
+    var body: some View {
+        VStack {
+            Text("\(Question)")
+                .font(.title3)
+                .foregroundStyle(.black)
+            Text("\(Answer)")
+                .font(.caption)
+                .foregroundStyle(.black)
+        }
+        .frame(width: 150)
+        .padding()
+        .background(Color.white)
+        .cornerRadius(10)
+        .shadow(radius: 5)
+        .padding(.horizontal)
+        .padding(.vertical,5)
+    }
+}
+
+#Preview {
+    ListCard(theDeck: .constant(DeckCard(name: "Biology", type: .Bio)))
 }
 
 
 
 //#Preview {
-//    ListCard()
+//    ListCard(theDeck: DeckCard(name: "Biology", type: .Bio))
 //}

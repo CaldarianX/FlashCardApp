@@ -11,7 +11,7 @@ struct ManageDeck: View {
     @State private var ques: String = ""
     @State private var ans: String = ""
     @State private var explain: String = ""
-    
+    @Binding var Deck : DeckCard
     var body: some View {
         VStack(alignment : .leading ,spacing: 10) {  // Add spacing between the TextEditors
             Text("Question")
@@ -39,7 +39,12 @@ struct ManageDeck: View {
             Spacer()
             HStack{
                 Button(action: {
-                    
+                    if(ques != "" && ans != ""){
+                        Deck.addCard(Question: ques, Answer: ans, Explaination: explain)
+                        ques = ""
+                        ans = ""
+                        explain = ""
+                    }
                 }, label: {
                     Text("Add")
                         .font(.largeTitle)
@@ -62,6 +67,7 @@ struct ManageDeck: View {
     }
 }
 
-#Preview {
-    ManageDeck()
-}
+//#Preview {
+//    ManageDeck()
+//}
+

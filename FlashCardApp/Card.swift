@@ -2,7 +2,8 @@ import Foundation
 import SwiftData
 
 
-class Card{
+class Card : Identifiable{
+    var id = UUID()
     var Question : String
     var Answer : String
     var Explaination : String? = ""
