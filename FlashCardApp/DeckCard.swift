@@ -6,16 +6,16 @@
 //
 
 import Foundation
-
+import SwiftData
 
 enum Subject{
     case Bio,Math,Physic,Chem,Japanese
 }
-
+@Model
 struct DeckCard : Identifiable{
-    var id = UUID()
+    @Attribute(.unique) var id = UUID()
     var name : String
-    var cards : [Card] = []
+    @Published var cards: [Card]
     var size : Int = 0
     var type : Subject
     
@@ -28,7 +28,7 @@ struct DeckCard : Identifiable{
         let newcard = Card(Q: Question, Ans: Answer, Exp: Explaination)
         cards.append(newcard)
         size += 1
-        print("WTF \(size)")
+//        print("WTF \(size)")
     }
     
     func getQuestion(index : Int) ->String{

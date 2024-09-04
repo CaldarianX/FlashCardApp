@@ -6,9 +6,10 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct ListCard: View {
-    @Binding var theDeck: DeckCard
+    @State var theDeck: DeckCard
     @State var Ondelete : Bool = false
     let columns = [
         GridItem(.flexible()),
@@ -38,6 +39,13 @@ struct ListCard: View {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     NavigationLink(destination: ManageDeck(Deck: $theDeck)){
                             Image(systemName: "plus")
+                    }
+                }
+            }
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    NavigationLink(destination: AddMultipleCard(Deck: $theDeck)){
+                            Image(systemName: "list.bullet.rectangle.portrait")
                     }
                 }
             }

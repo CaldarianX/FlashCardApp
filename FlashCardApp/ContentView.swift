@@ -5,9 +5,10 @@
 //  Created by Raphael on 31/8/24.
 //
 import SwiftUI
+import SwiftData
 
 struct ContentView: View {
-    @State var Decks: [DeckCard] = [
+    @Query var Decks: [DeckCard] = [
         DeckCard(name: "Bio", type: .Bio),
         DeckCard(name: "I want to sleep", type: .Bio),
         DeckCard(name: "Chem", type: .Chem),
@@ -63,7 +64,7 @@ struct ContentView: View {
             .navigationTitle("Decks")
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    NavigationLink(destination: NewDeck(Decks: $Decks)) {
+                    NavigationLink(destination: NewDeck(Decks: Decks)) {
                         Image(systemName: "plus")
                     }
                 }

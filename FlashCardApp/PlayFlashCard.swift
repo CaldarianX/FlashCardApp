@@ -8,64 +8,65 @@
 import SwiftUI
 
 struct PlayFlashCard: View {
-    @Environment (\.dismiss) var dismiss
-    @State var atQuestion : Int = 0
-    @State var ShowAnswer : Bool = false
-    @Binding var Decks : DeckCard
+    @Environment(\.dismiss) var dismiss
+    @State var atQuestion: Int = 0
+    @State var showAnswer: Bool = false
+    @State var rotation: Double = 0
+    @Binding var Decks: DeckCard
+    
     var body: some View {
-        VStack{
-            Gauge(value: Double(atQuestion+1), in : 0...Double(Decks.cards.count)) {
-                Text("\(String(atQuestion+1))")
+        VStack {
+            Gauge(value: Double(atQuestion + 1), in: 0...Double(Decks.cards.count)) {
+                Text("\(String(atQuestion + 1))")
             }
             Spacer()
+            Text(showAnswer ? "Answer" : "Question")
+                .font(.title3)
+                .fontWeight(.bold)
+            
             Button(action: {
-                if(!ShowAnswer){
-                    ShowAnswer = true
+                withAnimation(.easeInOut(duration: 0.6)) {
+                    rotation += 180
                 }
-                else if(atQuestion >= Decks.cards.count-1){
+                
+                if !showAnswer {
+                    showAnswer = true
+                } else if atQuestion >= Decks.cards.count - 1 {
                     dismiss()
-                }
-                else if(ShowAnswer){
+                } else if showAnswer {
                     atQuestion += 1
-                    ShowAnswer = false
+                    showAnswer = false
                 }
-            }, label: {
-                if(ShowAnswer){
-                    VStack{
+            }) {
+                VStack {
+                    if showAnswer {
                         Text(Decks.cards[atQuestion].Answer)
-                            .font(.title)
+                            .font(.largeTitle)
+                            .fontWeight(.bold)
                             .foregroundStyle(.black)
-                        if(Decks.cards[atQuestion].Explaination != ""){
-                            Text(Decks.cards[atQuestion].Explaination!)
-                                .font(.title3)
+                            .rotation3DEffect(.degrees(180), axis: (x: 0, y: 1, z: 0))  // Mirror text when flipping
+                        if let explanation = Decks.cards[atQuestion].Explaination, !explanation.isEmpty {
+                            Text(explanation)
+                                .font(.title2)
+                                .fontWeight(.medium)
                                 .foregroundStyle(.black)
                         }
+                    } else {
+                        Text(Decks.cards[atQuestion].Question)
+                            .font(.largeTitle)
+                            .fontWeight(.bold)
+                            .foregroundStyle(.black)
                     }
                 }
-                else{
-                    Text(Decks.cards[atQuestion].Question)
-                        .font(.title)
-                        .foregroundStyle(.black)
-                }
-            })
-            .frame(maxWidth: .infinity)
-            .frame(height: 300)
-            .clipShape(RoundedRectangle(cornerRadius: 10))
-            .background(.thinMaterial)
-            .shadow(radius: 5)
-            .padding(.horizontal,20)
+                .frame(maxWidth: .infinity)
+                .frame(height: 300)
+                .background(.thinMaterial)
+                .padding(.horizontal, 20)
+                .clipShape(RoundedRectangle(cornerRadius: 10))
+                .rotation3DEffect(.degrees(rotation), axis: (x: 0, y: 1, z: 0))
+            }
             Spacer()
         }
-        .padding(.horizontal,20)
+        .padding(.horizontal, 20)
     }
 }
-//#Preview {
-//    @State var newDeck = DeckCard(name: "Biology", type: .Bio)
-//    
-//    // Adding cards to the deck
-//    newDeck.addCard(Question: "AWD", Answer: "ADW", Explaination: "ADW")
-//    newDeck.addCard(Question: "AWDwda", Answer: "ADawdawW", Explaination: "ADWawdaw")
-//    newDeck.addCard(Question: "AWDawdad", Answer: "ADadwawW", Explaination: "")
-//
-//    return PlayFlashCard(Decks: $newDeck)
-//}

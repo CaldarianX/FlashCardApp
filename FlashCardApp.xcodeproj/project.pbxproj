@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		642F43AA2C86FE580016C55F /* PlayFlashCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 642F43A92C86FE580016C55F /* PlayFlashCard.swift */; };
+		642F43AC2C87695D0016C55F /* AddMultipleCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 642F43AB2C87695D0016C55F /* AddMultipleCard.swift */; };
 		64C08A502C82A0620017E510 /* FlashCardAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64C08A4F2C82A0620017E510 /* FlashCardAppApp.swift */; };
 		64C08A522C82A0620017E510 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64C08A512C82A0620017E510 /* ContentView.swift */; };
 		64C08A542C82A0620017E510 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64C08A532C82A0620017E510 /* Item.swift */; };
@@ -43,6 +44,7 @@
 
 /* Begin PBXFileReference section */
 		642F43A92C86FE580016C55F /* PlayFlashCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayFlashCard.swift; sourceTree = "<group>"; };
+		642F43AB2C87695D0016C55F /* AddMultipleCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMultipleCard.swift; sourceTree = "<group>"; };
 		64C08A4C2C82A0620017E510 /* FlashCardApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlashCardApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		64C08A4F2C82A0620017E510 /* FlashCardAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashCardAppApp.swift; sourceTree = "<group>"; };
 		64C08A512C82A0620017E510 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -122,6 +124,7 @@
 				64D4AF242C86909200029C69 /* NewDeck.swift */,
 				64D4AF282C86D5BA00029C69 /* testingStuff.swift */,
 				642F43A92C86FE580016C55F /* PlayFlashCard.swift */,
+				642F43AB2C87695D0016C55F /* AddMultipleCard.swift */,
 			);
 			path = FlashCardApp;
 			sourceTree = "<group>";
@@ -285,6 +288,7 @@
 				64D5C0E02C849409005E5B77 /* ManageDeck.swift in Sources */,
 				64D5C0E22C84B116005E5B77 /* ListCard.swift in Sources */,
 				64D5C0DE2C8491FB005E5B77 /* DeckCard.swift in Sources */,
+				642F43AC2C87695D0016C55F /* AddMultipleCard.swift in Sources */,
 				64D4AF252C86909200029C69 /* NewDeck.swift in Sources */,
 				64D4AF292C86D5BA00029C69 /* testingStuff.swift in Sources */,
 				64C08A542C82A0620017E510 /* Item.swift in Sources */,
